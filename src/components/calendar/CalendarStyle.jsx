@@ -1,6 +1,8 @@
 import styled from "styled-components";
 // import Card from "./card/Card";
 
+import img from "../../images/background.jpg";
+
 const CalendarStyle = styled.div`
   display: grid;
   grid-template-columns: 150px 80px 150px 150px 120px 150px;
@@ -8,8 +10,8 @@ const CalendarStyle = styled.div`
   justify-content: center;
   grid-gap: 10px 10px;
   grid-template-areas:
-    "item0 item0 item0 item6 item6 item18"
-    "item0 item0 item0 item6 item6 item11"
+    "title title title item6 item6 item18"
+    "title title title item6 item6 item11"
     "item10 item13 item13 item6 item6 item11"
     "item10 item13 item13 item16 item4 item4"
     "item10 item2 item2 item16 item4 item4"
