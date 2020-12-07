@@ -1,7 +1,4 @@
 import styled from "styled-components";
-// import Card from "./card/Card";
-
-import img from "../../images/background.jpg";
 
 const CalendarStyle = styled.div`
   display: grid;

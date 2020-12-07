@@ -5,13 +5,17 @@ import CalendarStyle from "./CalendarStyle";
 
 const getColor = () => {
   const colors = [
-    "hsla(88, 28%, 57%, 1)",
-    "hsla(107, 21%, 41%, 1)",
-    "hsla(45, 100%, 89%, 1)",
-    "hsla(35, 100%, 82%, 1)",
-    "hsla(0, 57%, 49%, 1)",
-    "hsla(358, 84%, 34%, 1)",
+    {
+      background: "hsla(88, 28%, 57%, 1)",
+      text: "white",
+    },
+    { background: "hsla(107, 21%, 41%, 1)", text: "white" },
+    { background: "hsla(45, 100%, 89%, 1)", text: "black" },
+    { background: "hsla(35, 100%, 82%, 1)", text: "black" },
+    { background: "hsla(0, 57%, 49%, 1)", text: "white" },
+    { background: "hsla(358, 84%, 34%, 1)", text: "white" },
   ];
+
   const index = Math.round(Math.random() * (colors.length - 1));
   return colors[index];
 };
@@ -25,10 +29,9 @@ const data = stuff.map((ele) => {
   };
 });
 
-console.log(data);
+// console.log(data);
 
 const Calendar = () => {
-  // const [cards, setCards] = useState(Array.from(Array(25).keys()));
   const [cards, setCards] = useState(data);
 
   const setIsOpened = (cardId) => {
@@ -41,7 +44,7 @@ const Calendar = () => {
 
   return (
     <CalendarStyle>
-      <Title>My Advent</Title>
+      <Title />
       {cards.map((card) => (
         <Card
           id={card.id}
