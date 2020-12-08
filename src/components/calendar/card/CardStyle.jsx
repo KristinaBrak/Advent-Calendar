@@ -8,7 +8,7 @@ const CardStyle = styled.div`
   border-radius: 10px;
   box-shadow: 3px 3px 3px gray;
   background-color: ${(props) =>
-    props.isOpened ? "black" : props.color.background};
+    props.isOpened ? props.color.darkBackground : props.color.background};
   padding: 10px;
   margin: 2px;
   display: flex;

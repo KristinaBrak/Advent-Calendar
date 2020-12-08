@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DarkenedBackgroundStyle from "./DarkenedBackgroundStyle";
 import DialogStyle from "./DialogStyle";
 
-const Dialog = ({ isOpen, onRequestClose }) => {
-  if (isOpen) {
+const Dialog = ({ opened, id, onClose, color, song }) => {
+  useEffect(() => {
+    document.body.style.overflow = opened ? "hidden" : "";
+  }, [opened]);
+
+  if (opened) {
     return (
-      <DarkenedBackgroundStyle>
-        <DialogStyle>
-          <div>Here I am</div>
-          <button onClick={onRequestClose}>Click me</button>
+      <>
+        <DarkenedBackgroundStyle onClick={onClose} />
+        <DialogStyle color={color}>
+          <iframe
+            src={`${song}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title={`video${id}`}
+          ></iframe>
+          <button onClick={onClose}>X</button>
         </DialogStyle>
-      </DarkenedBackgroundStyle>
+      </>
     );
   }
+
   return null;
 };
 

@@ -1,36 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import CardStyle from "./CardStyle";
-// import Dialog from "./dialog/Dialog";
+import Dialog from "./dialog/Dialog";
 
-const Card = ({ id, isOpened, onClick, color }) => {
-  // const [isOpenDialog, setIsOpenDialog] = useState(false);
+const Card = ({ id, isOpened, onClick, color, song }) => {
+  const [openDialog, setOpenDialog] = useState(false);
 
-  // const openDialog = () => {
-  //   if (!isOpened) {
-  //     console.log("Open Sesamee");
-  //     setIsOpenDialog(true);
-  //   }
-  // };
+  const afterClick = () => {
+    onClick();
+    setOpenDialog(!openDialog);
+  };
 
-  // if (isOpened) {
   return (
     <>
-      <CardStyle id={id} onClick={onClick} isOpened={isOpened} color={color}>
+      <CardStyle id={id} onClick={afterClick} isOpened={isOpened} color={color}>
         <div>{id}</div>
       </CardStyle>
-      {/* <Dialog
-        isOpened={isOpenDialog}
-        onRequestClose={() => setIsOpenDialog(false)}
-      /> */}
+      <Dialog
+        opened={openDialog}
+        id={id}
+        onClose={() => setOpenDialog(false)}
+        color={color}
+        song={song}
+      />
     </>
   );
-  // }
-
-  // return (
-  //   <CardStyle id={id} onClick={onClick} isOpened={isOpened} color={color}>
-  //     <div>{id}</div>
-  //   </CardStyle>
-  // );
 };
 
 export default Card;
