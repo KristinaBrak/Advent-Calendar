@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./card/Card";
 import Title from "./title/Title";
 import CalendarStyle from "./CalendarStyle";
@@ -7,32 +7,26 @@ const getColor = () => {
   const colors = [
     {
       background: "hsla(88, 28%, 57%, 1)",
-      darkBackground: "hsla(88, 28%, 20%, 1)",
       text: "white",
     },
     {
       background: "hsla(107, 21%, 41%, 1)",
-      darkBackground: "hsla(107, 21%, 20%, 1)",
       text: "white",
     },
     {
       background: "hsla(45, 100%, 89%, 1)",
-      darkBackground: "hsla(45, 100%, 20%, 1)",
       text: "black",
     },
     {
       background: "hsla(35, 100%, 82%, 1)",
-      darkBackground: "hsla(35, 100%, 20%, 1)",
       text: "black",
     },
     {
       background: "hsla(0, 57%, 49%, 1)",
-      darkBackground: "hsla(0, 57%, 20%, 1)",
       text: "white",
     },
     {
       background: "hsla(358, 84%, 34%, 1)",
-      darkBackground: "hsla(358, 84%, 14%, 1)",
       text: "white",
     },
   ];
@@ -68,19 +62,21 @@ const getSong = (id) => {
     "https://www.youtube.com/embed/V3EYjVPRClU",
     "https://www.youtube.com/embed/rZCEBibnRM8",
   ];
-  // return songs[id - 1];
   return songs[id - 1];
 };
 
-const [_, ...array] = Array.from(Array(25).keys());
-const data = array.map((ele) => {
-  return {
-    id: ele,
-    isOpened: false,
-    color: getColor(),
-    song: getSong(ele),
-  };
-});
+const [, ...array] = Array.from(Array(25).keys());
+const localData = localStorage.getItem("cards");
+const data = localData
+  ? JSON.parse(localData)
+  : array.map((ele) => {
+      return {
+        id: ele,
+        isOpened: false,
+        color: getColor(),
+        song: getSong(ele),
+      };
+    });
 
 const Calendar = () => {
   const [cards, setCards] = useState(data);
@@ -91,8 +87,10 @@ const Calendar = () => {
     );
 
     setCards(newCards);
+    localStorage.setItem("cards", JSON.stringify(newCards));
   };
 
+  useEffect(() => {});
   return (
     <CalendarStyle>
       <Title />

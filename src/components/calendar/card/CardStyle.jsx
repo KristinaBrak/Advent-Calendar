@@ -6,9 +6,9 @@ const CardStyle = styled.div`
   grid-area: ${({ id }) => `item${id}`};
   border: 2px green;
   border-radius: 10px;
-  box-shadow: 3px 3px 3px gray;
+  box-shadow: 5px 5px 10px #222;
   background-color: ${(props) =>
-    props.isOpened ? props.color.darkBackground : props.color.background};
+    props.isOpened ? "hsla(358,84%,14%,1)" : props.color.background};
   padding: 10px;
   margin: 2px;
   display: flex;

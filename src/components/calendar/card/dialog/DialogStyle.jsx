@@ -22,7 +22,6 @@ const DialogStyle = styled.div`
     width: var(--width);
     height: var(--height);
     border-radius: 10px;
-    
   }
 
   & button {
