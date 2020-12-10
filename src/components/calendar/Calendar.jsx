@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "./card/Card";
 import Title from "./title/Title";
 import CalendarStyle from "./CalendarStyle";
-import NavBar from "./nav-bar/NavBar";
+import NavBar from "./refresh-button/RefreshButton";
 
 const getColor = () => {
   const colors = [

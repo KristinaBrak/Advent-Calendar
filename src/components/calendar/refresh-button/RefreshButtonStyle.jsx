@@ -1,20 +1,10 @@
 import styled from "styled-components";
 
-const getJustifyContent = () => {
-  const number = Math.random();
-  if (number < 0.5) {
-    return "flex-end";
-  }
-  return "flex-start";
-};
-
-const NavBarStyle = styled.div`
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: ${() => getJustifyContent()};
-
-  & button {
+const RefreshButtonStyle = styled.button`
+  position: absolute;
+  & ${(props) => props.key} {
+    top: ${(props) => props.position.x}px;
+    left: ${(props) => props.position.y}px;
     width: 100px;
     height: auto;
     text-align: center;
@@ -28,7 +18,7 @@ const NavBarStyle = styled.div`
     border-radius: 10px;
   }
 
-  & button:hover {
+  &:hover {
     background-color: hsla(358, 84%, 14%, 1);
     border-color: hsla(358, 84%, 14%, 1);
     box-shadow: 5px 5px 10px #222;
@@ -36,10 +26,10 @@ const NavBarStyle = styled.div`
     font-weight: bold;
   }
 
-  & button:activate {
+  &:activate {
     background-color: hsla(358, 84%, 14%, 1);
     border-color: hsla(358, 84%, 14%, 1);
   }
 `;
 
-export default NavBarStyle;
+export default RefreshButtonStyle;
