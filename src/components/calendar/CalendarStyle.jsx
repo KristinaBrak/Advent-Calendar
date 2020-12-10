@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const CalendarStyle = styled.div`
   display: grid;
+  margin-bottom: 40px;
   grid-template-columns: 150px 80px 150px 150px 120px 150px;
   grid-template-rows: repeat(14, 80px);
   justify-content: center;

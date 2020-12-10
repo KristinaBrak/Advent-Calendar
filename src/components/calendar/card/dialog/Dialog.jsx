@@ -3,6 +3,7 @@ import DarkenedBackgroundStyle from "./DarkenedBackgroundStyle";
 import DialogStyle from "./DialogStyle";
 
 const Dialog = ({ opened, id, onClose, color, song }) => {
+  
   useEffect(() => {
     document.body.style.overflow = opened ? "hidden" : "";
   }, [opened]);

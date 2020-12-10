@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "./card/Card";
 import Title from "./title/Title";
 import CalendarStyle from "./CalendarStyle";
+import NavBar from "./nav-bar/NavBar";
 
 const getColor = () => {
   const colors = [
@@ -72,39 +73,69 @@ const data = localData
   : array.map((ele) => {
       return {
         id: ele,
-        isOpened: false,
+        wasOpened: false,
         color: getColor(),
         song: getSong(ele),
+        isActive: false,
       };
     });
 
+const localCounter = localStorage.getItem("counter");
+const counterData = localCounter ? Number(localCounter) : 1;
+
 const Calendar = () => {
   const [cards, setCards] = useState(data);
+  const [counter, setCounter] = useState(counterData);
 
-  const setIsOpened = (cardId) => {
-    const newCards = cards.map((card) =>
-      card.id === cardId ? { ...card, isOpened: true } : card
-    );
+  const setWasOpened = (cardId) => {
+    const newCards = cards.map((card) => {
+      const wasOpened = cardId === counter ? true : card.wasOpened;
+      if (cardId === counter) {
+        setCounter(counter + 1);
+        localStorage.setItem("counter", counter + 1);
+      }
+      return card.id === cardId
+        ? {
+            ...card,
+            wasOpened,
+            isActive: wasOpened,
+          }
+        : card;
+    });
 
     setCards(newCards);
     localStorage.setItem("cards", JSON.stringify(newCards));
   };
 
-  useEffect(() => {});
+  const setToInactive = (cardId) => {
+    const newCards = cards.map((card) =>
+      card.id === cardId ? { ...card, isActive: false } : card
+    );
+    setCards(newCards);
+  };
+
   return (
-    <CalendarStyle>
-      <Title />
-      {cards.map((card) => (
-        <Card
-          id={card.id}
-          key={card.id}
-          isOpened={card.isOpened}
-          onClick={() => setIsOpened(card.id)}
-          color={card.color}
-          song={card.song}
-        />
-      ))}
-    </CalendarStyle>
+    <>
+      <NavBar
+        onRefresh={() => {
+          localStorage.removeItem("cards");
+          localStorage.removeItem("counter");
+          window.location.reload();
+        }}
+      />
+      <CalendarStyle>
+        <Title />
+        {cards.map((card) => (
+          <Card
+            id={card.id}
+            key={card.id}
+            onClick={() => setWasOpened(card.id)}
+            card={card}
+            setToInactive={setToInactive}
+          />
+        ))}
+      </CalendarStyle>
+    </>
   );
 };
 

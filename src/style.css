@@ -1,4 +1,3 @@
-body,
 html {
   height: auto;
   width: auto;
@@ -7,4 +6,5 @@ html {
   background: url("./images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: "Mountains of Christmas";
 }

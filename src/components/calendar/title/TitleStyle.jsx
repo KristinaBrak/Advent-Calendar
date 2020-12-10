@@ -8,7 +8,9 @@ const TitleStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 44px;
+  font-weight: bold;
+  cursor: default;
 `;
 
 export default TitleStyle;
