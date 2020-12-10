@@ -12,6 +12,10 @@ const TitleStyle = styled.div`
   text-align: center;
   font-weight: bold;
   cursor: default;
+
+  ::selection {
+    background: transparent;
+  }
 `;
 
 export default TitleStyle;
