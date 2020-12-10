@@ -19,6 +19,11 @@ const CardStyle = styled.div`
     color: ${(props) =>
       props.wasOpened ? "hsla(45, 100%, 89%, 1)" : props.color.text};
   }
+
+  & div::selection {
+    background: red;
+    color: white;
+  }
 `;
 
 export default CardStyle;
