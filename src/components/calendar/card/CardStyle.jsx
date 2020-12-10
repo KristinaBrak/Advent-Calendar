@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 const CardStyle = styled.div`
-  --milkColor: "hsla(45, 100%, 89%, 1)";
-  --latteColor: "hsla(35, 100%, 82%, 1)";
   grid-area: ${({ id }) => `item${id}`};
   border: 2px green;
   border-radius: 10px;

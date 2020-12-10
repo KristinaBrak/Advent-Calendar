@@ -9,6 +9,7 @@ const TitleStyle = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 44px;
+  text-align: center;
   font-weight: bold;
   cursor: default;
 `;

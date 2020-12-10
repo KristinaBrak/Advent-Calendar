@@ -1,86 +1,8 @@
 import React, { useState } from "react";
 import RefreshButtonStyle from "./RefreshButtonStyle";
+import { data } from "./Buttons";
 
-const getCoordinate = () => {
-  const maxWinSize = document.documentElement.clientHeight + 200;
-  const coordinate = Math.random() * maxWinSize;
-  return Math.round(coordinate);
-};
-
-const NavBar = ({ onRefresh }) => {
-  const refreshText = "Reset";
-  const data = [
-    {
-      key: 0,
-      text: refreshText,
-      hidden: false,
-      position: {
-        x: 10,
-        y: 10,
-      },
-    },
-    {
-      key: 1,
-      text: refreshText,
-      hidden: true,
-      position: {
-        x: getCoordinate(),
-        y: getCoordinate(),
-      },
-    },
-    {
-      key: 2,
-      text: refreshText,
-      hidden: true,
-      position: {
-        x: getCoordinate(),
-        y: getCoordinate(),
-      },
-    },
-    {
-      key: 3,
-      text: refreshText,
-      hidden: true,
-      position: {
-        x: getCoordinate(),
-        y: getCoordinate(),
-      },
-    },
-    {
-      key: 4,
-      text: refreshText,
-      hidden: true,
-      position: {
-        x: getCoordinate(),
-        y: getCoordinate(),
-      },
-    },
-    {
-      key: 5,
-      text: refreshText,
-      hidden: true,
-      position: {
-        x: getCoordinate(),
-        y: getCoordinate(),
-      },
-    },
-    {
-      key: 6,
-      text: refreshText,
-      hidden: true,
-      position: {
-        x: getCoordinate(),
-        y: getCoordinate(),
-      },
-    },
-    {
-      key: 7,
-      text: refreshText,
-      hidden: true,
-      position: { x: 10, y: 10 },
-    },
-  ];
-
+const RefreshButton = ({ onRefresh }) => {
   const [buttons, setButtons] = useState(data);
 
   const changeButtons = (key) => {
@@ -99,7 +21,6 @@ const NavBar = ({ onRefresh }) => {
   };
 
   return (
-    // <RefreshButtonStyle>
     <>
       {buttons.map((button) => (
         <RefreshButtonStyle
@@ -112,9 +33,8 @@ const NavBar = ({ onRefresh }) => {
           {button.text}
         </RefreshButtonStyle>
       ))}
-      {/* </RefreshButtonStyle> */}
     </>
   );
 };
 
-export default NavBar;
+export default RefreshButton;
