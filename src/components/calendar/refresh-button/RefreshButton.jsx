@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import RefreshButtonStyle from "./RefreshButtonStyle";
 
 const NavBar = ({ onRefresh }) => {
-  const refreshText = "Refresh";
+  const refreshText = "Reset";
   const data = [
     {
       key: 0,

@@ -18,7 +18,8 @@ const CardStyle = styled.div`
 
   & div {
     font-size: 70px;
-    color: ${(props) => (props.wasOpened ? "transparent" : props.color.text)};
+    color: ${(props) =>
+      props.wasOpened ? "hsla(45, 100%, 89%, 1)" : props.color.text};
   }
 `;
 
