@@ -115,7 +115,7 @@ const Calendar = () => {
   };
 
   return (
-    <>
+    <div id="calendar">
       <NavBar
         onRefresh={() => {
           localStorage.removeItem("cards");
@@ -135,7 +135,7 @@ const Calendar = () => {
           />
         ))}
       </CalendarStyle>
-    </>
+    </div>
   );
 };
 

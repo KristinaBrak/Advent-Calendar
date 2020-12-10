@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import RefreshButtonStyle from "./RefreshButtonStyle";
 
+const getCoordinate = () => {
+  const maxWinSize = document.documentElement.clientHeight + 200;
+  const coordinate = Math.random() * maxWinSize;
+  return Math.round(coordinate);
+};
+
 const NavBar = ({ onRefresh }) => {
   const refreshText = "Reset";
   const data = [
@@ -8,44 +14,64 @@ const NavBar = ({ onRefresh }) => {
       key: 0,
       text: refreshText,
       hidden: false,
-      position: { x: 10, y: 10 },
+      position: {
+        x: 10,
+        y: 10,
+      },
     },
     {
       key: 1,
       text: refreshText,
       hidden: true,
-      position: { x: 10, y: 1500 },
+      position: {
+        x: getCoordinate(),
+        y: getCoordinate(),
+      },
     },
     {
       key: 2,
       text: refreshText,
       hidden: true,
-      position: { x: 300, y: 10 },
+      position: {
+        x: getCoordinate(),
+        y: getCoordinate(),
+      },
     },
-
     {
       key: 3,
       text: refreshText,
       hidden: true,
-      position: { x: 500, y: 1200 },
+      position: {
+        x: getCoordinate(),
+        y: getCoordinate(),
+      },
     },
     {
       key: 4,
       text: refreshText,
       hidden: true,
-      position: { x: 500, y: 1200 },
+      position: {
+        x: getCoordinate(),
+        y: getCoordinate(),
+      },
     },
     {
       key: 5,
       text: refreshText,
       hidden: true,
-      position: { x: 700, y: 1300 },
+      position: {
+        x: getCoordinate(),
+        y: getCoordinate(),
+      },
     },
     {
       key: 6,
       text: refreshText,
       hidden: true,
-      position: { x: 1200, y: 200 },
+      position: {
+        x: getCoordinate(),
+        y: getCoordinate(),
+      },
     },
     {
       key: 7,
