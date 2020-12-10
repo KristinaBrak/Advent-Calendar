@@ -55,7 +55,7 @@ const Calendar = () => {
   };
 
   return (
-    <div id="calendar">
+    <>
       <RefreshButton
         onRefresh={() => {
           localStorage.removeItem("cards");
@@ -75,7 +75,7 @@ const Calendar = () => {
           />
         ))}
       </CalendarStyle>
-    </div>
+    </>
   );
 };
 
